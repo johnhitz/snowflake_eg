@@ -9,6 +9,7 @@ defmodule SnowflakeEg.Application do
     children = [
       # Starts a worker by calling: SnowflakeEg.Worker.start_link(arg)
       # {SnowflakeEg.Worker, arg}
+      {SnowflakeEg.SequenceAgent, 0}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
