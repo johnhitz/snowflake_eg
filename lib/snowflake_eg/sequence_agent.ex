@@ -14,4 +14,8 @@ defmodule SnowflakeEg.SequenceAgent do
   def get(name \\ __MODULE__) do
     Agent.get(name, fn(val) -> val end)
   end
+
+  def update(name \\ __MODULE__) do
+    Agent.update(name, fn(val) -> val + 1 end)
+  end
 end
