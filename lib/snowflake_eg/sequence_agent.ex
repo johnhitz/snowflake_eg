@@ -16,6 +16,12 @@ defmodule SnowflakeEg.SequenceAgent do
   end
 
   def update(name \\ __MODULE__) do
-    Agent.update(name, fn(val) -> val + 1 end)
+    Agent.update(name, fn(val) ->
+      if val >= 999 do
+        val = 0
+      else
+        val + 1
+      end
+    end)
   end
 end
