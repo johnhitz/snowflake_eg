@@ -4,11 +4,11 @@ defmodule SnowflakeEg.SequenceAgent do
   @moduledoc """
   Generates a sequene of numbers between 0 and 999
   """
-  def start_link(init, opts \\ []) do
+  def start_link(init_val, opts \\ []) do
     name = Keyword.get(opts, :name, __MODULE__)
     #sleep for 1 millisecond to insure unique timestamp on restart of SequenceAgent
     :timer.sleep(1)
-    Agent.start_link(fn() -> init end, name: name)
+    Agent.start_link(fn() -> init_val end, name: name)
   end
 
   def get(name \\ __MODULE__) do
@@ -18,7 +18,7 @@ defmodule SnowflakeEg.SequenceAgent do
   def update(name \\ __MODULE__) do
     Agent.update(name, fn(val) ->
       if val >= 999 do
-        val = 0
+        _val = 0
       else
         val + 1
       end

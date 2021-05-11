@@ -5,6 +5,7 @@ defmodule SnowflakeEg.Application do
 
   use Application
 
+
   def start(_type, _args) do
     children = [
       # Starts a worker by calling: SnowflakeEg.Worker.start_link(arg)
